@@ -15,7 +15,7 @@ import {Home} from './component/home.jsx';
 ReactDOM.render(
     <div>
         <Navbar />
-        <Jumbotron />
+        <PricingHeader />
         <PricingCards />
         <Footer />
     </div>
@@ -37,7 +37,7 @@ function Navbar(props){
     </div>);
 }
 
-function Jumbotron(){
+function PricingHeader(){
     return <div>
         <div className="pricing-header jumbotron jumbotron-fluid bg-white mx-auto pb-1">
             <div className="container text-center">
