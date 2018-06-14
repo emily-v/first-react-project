@@ -16,6 +16,7 @@ import {Home} from './component/home.jsx';
 ReactDOM.render(
     <div>
         <Navbar />
+        <Counter />
         <PricingHeader />
         <div className="container card-deck-container">
             <div className="card-deck">
@@ -66,6 +67,24 @@ function Navbar(props){
     </div>);
 }
 
+function Counter(){
+    return <div className="container">
+        <div className="row bg-dark text-white">
+            <h2 className="d-inline">&f017;</h2>
+            <h2 className="d-inline">{props.hundredThousands}</h2>
+            <h2 className="d-inline">{props.tenThousands}</h2>
+            <h2 className="d-inline">{props.thousands}</h2>
+            <h2 className="d-inline">{props.hundreds}</h2>
+            <h2 className="d-inline">{props.tens}</h2>
+            <h2 className="d-inline">{props.zero}</h2>
+        </div>
+    </div>;
+}
+
+Counter.propTypes = {
+    
+};
+
 function PricingHeader(){
     return <div>
         <div className="pricing-header jumbotron jumbotron-fluid bg-white mx-auto pb-1">
@@ -79,8 +98,8 @@ function PricingHeader(){
 
 function Card(props){
     const others = [];
-    props.other.forEach(function(element){
-    others.push(<li>{element}</li>);
+    props.other.forEach(function(element,index){
+    others.push(<li key={index}>{element}</li>);
     });
        
     return <div className="card mb-4 shadow-sm">
