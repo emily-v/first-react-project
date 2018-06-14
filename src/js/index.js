@@ -16,7 +16,14 @@ import {Home} from './component/home.jsx';
 ReactDOM.render(
     <div>
         <Navbar />
-        <Counter />
+        <Counter 
+            hundredThousands={0}
+            tenThousands={0}
+            thousands={0}
+            hundreds={0}
+            tens={0}
+            zero={0}
+        />
         <PricingHeader />
         <div className="container card-deck-container">
             <div className="card-deck">
@@ -67,22 +74,27 @@ function Navbar(props){
     </div>);
 }
 
-function Counter(){
+function Counter(props){
     return <div className="container">
-        <div className="row bg-dark text-white">
-            <h2 className="d-inline">&f017;</h2>
-            <h2 className="d-inline">{props.hundredThousands}</h2>
-            <h2 className="d-inline">{props.tenThousands}</h2>
-            <h2 className="d-inline">{props.thousands}</h2>
-            <h2 className="d-inline">{props.hundreds}</h2>
-            <h2 className="d-inline">{props.tens}</h2>
-            <h2 className="d-inline">{props.zero}</h2>
+        <div className="row bg-dark text-white d-flex justify-content-around pt-3 pb-3">
+            <h2 className="d-inline col-1">{'\uf017'}</h2>
+            <h2 className="d-inline col-1">{props.hundredThousands}</h2>
+            <h2 className="d-inline col-1">{props.tenThousands}</h2>
+            <h2 className="d-inline col-1">{props.thousands}</h2>
+            <h2 className="d-inline col-1">{props.hundreds}</h2>
+            <h2 className="d-inline col-1">{props.tens}</h2>
+            <h2 className="d-inline col-1">{props.zero}</h2>
         </div>
     </div>;
 }
 
 Counter.propTypes = {
-    
+    hundredThousands: PropTypes.number,
+    tenThousands: PropTypes.number,
+    thousands: PropTypes.number,
+    hundreds: PropTypes.number,
+    tens: PropTypes.number,
+    zero: PropTypes.number
 };
 
 function PricingHeader(){
