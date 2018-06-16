@@ -2,7 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
-import Clock from 'react-icons/lib/md/alarm'; //maybe need to fix import
+import Clock from 'react-icons/lib/md/schedule';
 
 //include bootstrap npm library into the bundle
 import 'bootstrap';
@@ -12,6 +12,8 @@ import '../styles/index.scss';
 
 //import your own components
 import {Home} from './component/home.jsx';
+
+import {Xcomponent} from './component/Xcomponent.jsx';
 
 //render your react application
 var seconds = 99995;
@@ -34,6 +36,7 @@ setInterval(function(){
                 tens={secondsTens}
                 zero={secondsZero}
             />
+            <Xcomponent city="Miami"/>
             <PricingHeader />
             <div className="container card-deck-container">
                 <div className="card-deck">
