@@ -2,6 +2,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import PropTypes from 'prop-types';
+import Clock from 'react-icons/lib/md/alarm'; //maybe need to fix import
 
 //include bootstrap npm library into the bundle
 import 'bootstrap';
@@ -13,9 +14,9 @@ import '../styles/index.scss';
 import {Home} from './component/home.jsx';
 
 //render your react application
-var seconds = 5;
+var seconds = 99995;
 setInterval(function(){
-    seconds++;
+    seconds++; //try to simplify the math below
     var secondsZero = seconds % 10;
     var secondsTens = (seconds - (seconds % 10))/10;
     var secondsHundreds = (seconds - (seconds % 100))/100;
@@ -87,13 +88,13 @@ setInterval(function(){
     function Counter(props){
         return <div className="container">
             <div className="row bg-dark text-white d-flex justify-content-around pt-3 pb-3">
-                <h2 className="d-inline col-1">{'\uf017'}</h2>
-                <h2 className="d-inline col-1">{props.hundredThousands}</h2>
-                <h2 className="d-inline col-1">{props.tenThousands}</h2>
-                <h2 className="d-inline col-1">{props.thousands}</h2>
-                <h2 className="d-inline col-1">{props.hundreds}</h2>
-                <h2 className="d-inline col-1">{props.tens}</h2>
-                <h2 className="d-inline col-1">{props.zero}</h2>
+                <h2 className="d-inline col-1"><Clock /></h2>
+                <h2 className="d-inline col-1">{props.hundredThousands % 10}</h2>
+                <h2 className="d-inline col-1">{props.tenThousands % 10}</h2>
+                <h2 className="d-inline col-1">{props.thousands % 10}</h2>
+                <h2 className="d-inline col-1">{props.hundreds % 10}</h2>
+                <h2 className="d-inline col-1">{props.tens % 10}</h2>
+                <h2 className="d-inline col-1">{props.zero % 10}</h2>
             </div>
         </div>;
     }
